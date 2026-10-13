@@ -1,0 +1,77 @@
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* รองรับทั้ง fade-out และ hide เพื่อป้องกัน Class ไม่ตรงกัน */
+#loader.fade-out,
+#loader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-text,
+.loader-sub {
+  font-family: "Itim", system-ui, sans-serif;
+}
+
+.loader-text {
+  margin: 0;
+  font-size: clamp(40px, 8vw, 64px);
+  font-weight: 400;
+  color: var(--primary);
+  opacity: 0;
+  /* เปลี่ยนจาก infinite เป็น forwards เพื่อให้เล่นจบแล้วค้างไว้ */
+  animation: textPulse 1.2s cubic-bezier(.4, 0, .2, 1) forwards;
+  will-change: opacity, transform;
+}
+
+.loader-sub {
+  margin: 0;
+  font-size: clamp(20px, 3vw, 24px);
+  color: var(--text-muted);
+  opacity: 0;
+  /* เปลี่ยนจาก infinite เป็น forwards และให้เริ่มช้ากว่านิดหน่อยด้วย delay 0.4s */
+  animation: subPulse 1.2s cubic-bezier(.4, 0, .2, 1) 0.4s forwards;
+  will-change: opacity, transform;
+}
+
+/* ปรับให้ขึ้นมาแล้วค้างที่ opacity: 1 */
+@keyframes textPulse {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subPulse {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  pointer-events: none;
+}
+
+body.loaded main {
+  pointer-events: auto;
+}

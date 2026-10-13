@@ -1,0 +1,16 @@
+#sendBtn {
+  background: #8b5a2b;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 12px;
+  font-family: 'Itim', cursive;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+  white-space: nowrap;
+}
+
+#sendBtn:hover:not(:disabled) {
+  background: #6e4420;
+}
