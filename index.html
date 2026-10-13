@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Itim&display=swap"
+      rel="stylesheet"
+    />
+    <!--css-->
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/loading.css" />
+    <link rel="stylesheet" href="styles/chatbox.css" />
+    <title>Happy Birthday</title>
+  </head>
+
+  <body>
+    <div id="loader">
+      <p class="loader-text">ในวันที่พิเศษ</p>
+      <p class="loader-sub">แตะที่หน้าจอเพื่อเริ่ม...</p>
+    </div>
+
+    <main>
+      <!--แชท-->
+      <div class="chat-container" id="chatContainer"></div>
+
+      <!--ช่องส่งข้อความ-->
+      <div class="chatbox">
+        <div class="chat-input-fake" id="chatInput"></div>
+        <button id="sendBtn" disabled style="opacity: 0.5; cursor: not-allowed">
+          ส่ง
+        </button>
+      </div>
+    </main>
+
+    <script src="scripts/chat.js"></script>
+  </body>
+</html>
